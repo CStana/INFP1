@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title>Prijava</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+	html,body{
+    height:100%;
+    width:100%;
+}
+
+    body {
+        background: url("Pozadinaprijava.jpg") ;
+        background-size:cover;
+    
+    }
+
+    .main-section{
+        margin:auto;
+        margin-top:130px;
+        padding:0;
+    }
+
+    .modal-content{
+        background-color:#000000;
+        opacity:0.8;
+        padding:10px 10px;
+        border-radius:20px;
+
+    }
+
+    .form-group{
+        margin-bottom:30px;
+    }
+
+    .form-group input{
+        height:45px;
+        border-radius:20px;
+    }
+
+    .form-input button{
+        width:30%px;
+        margin:5px 0 25px;
+    }
+
+    .reg a{
+        color:white;
+        text-decoration: none;
+    }
+
+    .reg a:hover{
+        color:lightgray;
+        text-decoration: none;
+    }
+</style>
+<body>
+
+    <div class="modal-dialog text-center">
+        <div class="col-sm-9 main-section">
+            <div class="modal-content">
+                <div class="col-12 form-input">
+                    <form id="form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Upišite korisničko ime" id="username" >
+                            <div style="display:none;" class="invalid-feedback" id="username_invalid">Korisničko ime se sastoji od najmanje 6 znakova</div>
+                        </div>
+                        <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Upišite lozinku" id="password">
+                                <div style="display:none;" class="invalid-feedback" id="password_invalid">Lozinka se sastoji od najmanje 6 znakova</div>
+                        </div>
+                        <button type="submit" class="btn btn-success " id="subBtn">Prijavi se</button>
+                    </form>
+                </div>
+                <div class="col-12 reg">
+                    <br />
+                    <a href="registracija.html">Nemate račun? Registrirajte se.</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+    
+        var form=document.querySelector("#form");
+        var username=document.getElementById("username");
+        var password=document.getElementById("password");
+        var username_invalid=document.getElementById("username_invalid");
+        var password_invalid=document.getElementById("password_invalid");
+        
+        form.addEventListener("submit",function(event){
+            event.preventDefault();
+            if(password.value.trim().length<6){
+                password.className="form-control is-invalid";
+                password_invalid.style.display="block";
+            }else if(password.value.trim().length>=6){
+                password.className="form-control is-valid";
+                password_invalid.style.display="none";
+            }if(username.value.trim().length<6){
+                username.className="form-control is-invalid";
+                username_invalid.style.display="block";
+            }else if(username.value.trim().length>=6){
+                username.className="form-control is-valid";
+                username_invalid.style.display="none";
+            }if(username.className=="form-control is-valid" && password.className=="form-control is-valid"){
+                var psw=prompt("Ako želite zapamtiti lozinku ukucajte 'da',u suprotnom 'ne':")
+                if(psw=="da"){
+                    console.log("Da");
+                }else{
+                    console.log("Ne");
+                }
+            }
+        });
+
+
+    
+    </script>
+</body>
+</html>
